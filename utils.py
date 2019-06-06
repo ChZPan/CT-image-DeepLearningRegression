@@ -2,7 +2,6 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import cv2
 from PIL import Image
 import math
 
@@ -62,43 +61,6 @@ def coord_transfm(df_roi_org, shifts=(359, 359), cropped_resol=(1330, 1330)):
     
     return df_roi 
 
-
-def draw_roi(img_path, img_list, true_centers, pred_centers=None, 
-             actual_R=1.5, actual_imgsize=16.38, current_resol=1330, 
-             org_resol=2048, rows=1, cols=3, model_name="Model"):
-    
-    resize_ratio = current_resol / org_resol
-    R = math.floor(current_resol * actual_R/(actual_imgsize*resize_ratio))
-    
-    plt.figure(figsize=(8*cols, 8*rows))
-    
-    for i, img_id in enumerate(img_list):
-        plt.subplot(rows, cols, i+1)
-        img = cv2.imread(img_path + img_id + '.png')
-        cx = math.floor(true_centers[i, 0] * current_resol)
-        cy = math.floor(true_centers[i, 1] * current_resol)        
-        
-        if pred_centers is not None:
-            cx_pred = math.floor(pred_centers[i, 0] * current_resol) 
-            cy_pred = math.floor(pred_centers[i, 1] * current_resol)
-            img_mod = cv2.circle(img, (cx_pred, cy_pred), R, (0,0,255), 3)  # Mark the predicted center in blue
-            img_mod = cv2.circle(img_mod, (cx_pred, cy_pred), round(R*0.05), (0,0,255), -1)  
-            img_mod = cv2.circle(img_mod, (cx, cy), R, (255,0,0), 2)  # Mark the true center in red
-            img_mod = cv2.circle(img_mod, (cx, cy), round(R*0.05), (255,0,0), -1)  
-
-        else:
-            img_mod = cv2.circle(img, (cx, cy), R, (255,0,0), 3)  # Mark the true center in red
-            img_mod = cv2.circle(img_mod, (cx, cy), round(R*0.05), (255,0,0), -1)  
-
-        plt.imshow(img_mod)
-    
-        if pred_centers is not None:
-            plt.title("ROI center\n" + model_name + ": {}\nHuman: {}"
-                      .format(str((cx_pred, cy_pred)),
-                              str((cx, cy))))
-        else:
-            plt.title("ROI center: {}".format(str((cx, cy))))   
-            
 
 def mirror(df_imgs, flip_axis, img_height, img_width):
     

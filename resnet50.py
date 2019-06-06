@@ -1,5 +1,6 @@
 import numpy as np
 import tensorflow as tf
+from keras import backend as K
 from keras.layers import Dense, Dropout, Flatten, Conv2D, Input, Add, \
                          Activation, ZeroPadding2D, BatchNormalization, \
                          AveragePooling2D, MaxPooling2D, GlobalMaxPooling2D
@@ -7,15 +8,56 @@ from keras.models import Model
 from keras.initializers import glorot_uniform
 from keras.optimizers import Adam
 
-# Define loss function (tensor)
-def Eucl_distance_tensor(y_pred, y_true):
+# Define loss function
+def mean_L2_loss(y_pred, y_true):
+    """
+    Mean L2-norm regression loss
+    
+    Parameters
+    ----------
+    y_true : array-like of shape = (n_samples, vec_dim)
+    y_pred : array-like of shape = (n_samples, vec_dim)
+
+    Returns
+    -------
+    Loss : A positive floating point value, the best value is 0.0.
+    """
     d = y_pred - y_true
     return tf.reduce_mean(tf.norm(d, axis=1))
 
 
-def Eucl_distance(y_pred, y_true):
+def rmse(y_pred, y_true):
+    """
+    Root-mean-square-error metrics
+    
+    Parameters
+    ----------
+    y_true : array-like of shape = (n_samples, vec_dim)
+    y_pred : array-like of shape = (n_samples, vec_dim)
+
+    Returns
+    -------
+    Metrics : A positive floating point value, the best value is 0.0.
+    """
     d = y_pred - y_true
-    return np.linalg.norm(d, axis=1).mean()
+    return K.sqrt(K.mean(K.square(tf.norm(d, axis=1))))
+    
+    
+def max_error(y_true, y_pred):
+    """
+    max_error metric calculates the maximum residual error.
+    
+    Parameters
+    ----------
+    y_true : array-like of shape = (n_samples, vec_dim)
+    y_pred : array-like of shape = (n_samples, vec_dim)
+
+    Returns
+    -------
+    max_error : A positive floating point value, the best value is 0.0.
+    """
+    d = y_pred - y_true
+    return K.max(tf.norm(d, axis=1))
 
 
 def idn_block(X, f, filters, stage, block):
@@ -215,6 +257,7 @@ def ResNet50(input_shape, lr_power=-3.0, lr_decay=0.0,
     # Compile model
     learning_rate = 10.0**(lr_power)
     optim = Adam(lr=learning_rate, decay=lr_decay)
-    model.compile(loss=Eucl_distance_tensor, optimizer=optim)
+    model.compile(loss=mean_L2_loss, optimizer='adam',
+                  metrics=[rmse, max_error])
     
     return model
