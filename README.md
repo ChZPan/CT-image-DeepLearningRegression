@@ -2,7 +2,7 @@
 Authors: Zhichao Pan and Dr. Yuan Yang, Bone Interface Group, IBBME, U of T (http://www.ecf.utoronto.ca/~bonehead/)
 
 ## Introduction
-The purpose of this project is to create a data science pipeline to automate processing and analyzing of CT scan data obtained from laboratory samples. Specifically, we are interested to apply deep learning techniques to detecting a surgically created circular defect  in every cross-sectional image of mouse cranial bone, as shown in the pictures below.
+The purpose of this project is to create a data science pipeline to automate processing and analyzing of CT scan data obtained from laboratory samples. Specifically, we are interested to apply deep learning techniques to detecting a surgically created circular defect  in every cross-sectional image of mouse cranial bone, as illustrated below.
 
 
 
