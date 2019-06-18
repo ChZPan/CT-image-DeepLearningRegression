@@ -1,7 +1,7 @@
 # Detect Defect Area in Cranial CT Scan Images Using CNN and ResNet
 Authors: Zhichao Pan and Dr. Yuan Yang
-         
-         Bone Interface Group, IBBME, U of T (http://www.ecf.utoronto.ca/~bonehead/)
+
+Bone Interface Group, IBBME, U of T (http://www.ecf.utoronto.ca/~bonehead/)
 
 
 ## Introduction
