@@ -1,17 +1,13 @@
 # Detect Defect Area in Cranial CT Scan Images Using CNN and ResNet
-Authors: Zhichao Pan and Dr. Sophie Yang, Bone Interface Group, IBBME, U of T (http://www.ecf.utoronto.ca/~bonehead/)
-
+Authors: Zhichao Pan and Dr. Sophie Yang, [Bone Interface Group](http://www.ecf.utoronto.ca/~bonehead/), IBBME, U of T 
 
 ## Introduction
 The purpose of this project is to create a data science pipeline to automate processing and analyzing of CT scan data obtained from laboratory samples. Specifically, we are interested to apply deep learning techniques to detecting a surgically created circular defect  in every cross-sectional image of mouse cranial bone. 
 
-Defect area in the sample images below is circled in red, recongized by human experts.
+![Defect area in the sample images below is circled in red, measured by human experts.](./images/human.png)
 
 
-![](./images/human.png)
-
-
-## Datasets
+## Dataset
 ### [Sample dataset](https://www.kaggle.com/nih-chest-xrays/sample)
 * File contents: this is a random sample (5%) of the full dataset:
  sample.zip: Contains 5,606 images with size 1024 x 1024
