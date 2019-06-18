@@ -1,9 +1,10 @@
 # Detect Defect Area in Cranial CT Scan Images Using CNN and ResNet
-Machine Learning Capstone Project - Udacity MLND
+Authors: Zhichao Pan and Dr. Yuan Yang, Bone Interface Group, IBBME, U of T (http://www.ecf.utoronto.ca/~bonehead/)
 
-## Project Overview
-With so many lung diseases people can get, here is just one example of diseases we can save if we find them out earlier.
-With the technology machine and computer power, the earlier identification of diseases, particularly lung disease, we can be helped to detect earlier and more accurately, which can save many many people as well as reduce the pressure on the system. The health system has not developed in time with the development of the population.
+## Introduction
+The purpose of this project is to create a data science pipeline to automate processing and analyzing of CT scan data obtained from laboratory samples. Specifically, we are interested to apply deep learning techniques to detecting a surgically created circular defect  in every cross-sectional image of mouse cranial bone, as shown in the pictures below.
+
+
 
 ## Analysis
 ### Data Exploration
