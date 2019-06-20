@@ -1,26 +1,21 @@
 # Detect Defect Area in Cranial CT Scan Images Using CNN and ResNet
 Authors: Zhichao Pan and Dr. Sophie Yang, [Bone Interface Group](http://www.ecf.utoronto.ca/~bonehead/), IBBME, U of T 
 
-## Introduction
+## Project Overview
 The purpose of this project is to create a data science pipeline to automate processing and analyzing of CT scan data obtained from laboratory samples. Specifically, we are interested to apply deep learning techniques to detecting a surgically created circular defect  in every cross-sectional image of mouse cranial bone. 
 
-Defect area in the sample images below is circled in red, measured by human experts.
+Regions of defect in the sample images below are circled in red, measured by human experts.
 ![](./images/human.png)
 
 
 ## Dataset
-### [Sample dataset](https://www.kaggle.com/nih-chest-xrays/sample)
-* File contents: this is a random sample (5%) of the full dataset:
- sample.zip: Contains 5,606 images with size 1024 x 1024
- sample_labels.csv: Class labels and patient data for the entire dataset
-* Class descriptions: there are 15 classes (14 diseases, and one for "No findings") in the full dataset, but since this is drastically reduced version of the full dataset, some of the classes are sparse with the labeled as "No findings": Hernia - 13 images, Pneumonia - 62 images, Fibrosis - 84 images, Edema - 118 images, Emphysema - 127 images, Cardiomegaly - 141 images, Pleural_Thickening - 176 images, Consolidation - 226 images, Pneumothorax - 271 images, Mass - 284 images, Nodule - 313 images, Atelectasis - 508 images, Effusion - 644 images, Infiltration - 967 images, No Finding - 3044 images.
-### [Full dataset](https://www.kaggle.com/nih-chest-xrays/data)
-* File contents:
- images_00x.zip: 12 files with 112,120 total images with size 1024 x 1024
- README_ChestXray.pdf: Original README file
- BBox_list_2017.csv: Bounding box coordinates. Note: Start at x,y, extend horizontally w pixels, and vertically h pixels
- Data_entry_2017.csv: Class labels and patient data for the entire dataset
-* Class descriptions: there are 15 classes (14 diseases, and one for "No findings"). Images can be classified as "No findings" or one or more disease classes: Atelectasis, Consolidation, Infiltration, Pneumothorax, Edema, Emphysema, Fibrosis, Effusion, Pneumonia, Pleural_thickening, Cardiomegaly, Nodule Mass, Hernia.
+The full dataset for model training is available at https://www.kaggle.com/chzpan/bone-lab. The 
+File contents:
+* sample.zip: Contains 5,606 images with size 1024 x 1024
+* sample_labels.csv: Class labels and patient data for the entire dataset
+
+### Pre-processing
+
 
 ## Algorithms and Techniques
 * CNN
