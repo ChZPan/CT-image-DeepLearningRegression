@@ -9,7 +9,27 @@ Regions of defect in the sample images below are circled in red, measured by hum
 
 
 ## Dataset
-The full dataset for model training is available at https://www.kaggle.com/chzpan/bone-lab. The 
+The full dataset for model training is available at [Kaggle](https://www.kaggle.com/chzpan/bone-lab). The
+
+```
+-data
+ |
+ ---- sample_submission_validate.csv
+ |
+ ---- train.csv
+ |
+ ---- train
+ |    |
+ |    ---- 0
+ |    |
+ |    ---- …
+ |
+ ---- validate
+      |
+      ---- 501
+      |
+      ---- …
+```
 File contents:
 * sample.zip: Contains 5,606 images with size 1024 x 1024
 * sample_labels.csv: Class labels and patient data for the entire dataset
