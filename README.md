@@ -9,26 +9,24 @@ Regions of defect in the sample images below are circled in red, measured by hum
 
 
 ## Dataset
-The full dataset for model training is available at [Kaggle](https://www.kaggle.com/chzpan/bone-lab). The
+The full dataset for model training is available at [Kaggle](https://www.kaggle.com/chzpan/bone-lab). The directory tree looks like:
 
 ```
--data
- |
- ---- sample_submission_validate.csv
- |
- ---- train.csv
- |
- ---- train
- |    |
- |    ---- 0
- |    |
- |    ---- …
- |
- ---- validate
-      |
-      ---- 501
-      |
-      ---- …
+ .
+ |____roi
+ |    |____C0005530.ISQroi
+ |    |    |____0022-1059-0859.roi
+ |    |    |____0023-1059-0859.roi
+ |    |    |____...
+ |    |____C0005531.ISQroi
+ |    |    |____0003-1135-1011.roi
+ |    |    |____0004-1135-1011.roi
+ |    |    |____...
+ |    |____...
+ |____trainset
+      |____C00055300022.png
+      |____C00055300023.png
+      |____...
 ```
 File contents:
 * sample.zip: Contains 5,606 images with size 1024 x 1024
