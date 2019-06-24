@@ -1,5 +1,5 @@
 # Detect Defect Area in Cranial CT Scan Images Using CNN and ResNet
-Authors: Zhichao Pan (charles.zhpan@gmail.com) and Dr. Sophie Yang (yuanyang@utoronto.ca)
+#### Authors: Zhichao Pan (charles.zhpan@gmail.com) and Dr. Sophie Yang (yuanyang@utoronto.ca)
 @[Bone Interface Group](http://www.ecf.utoronto.ca/~bonehead/), IBBME, University of Toronto 
 
 ## Project Overview
