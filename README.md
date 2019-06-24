@@ -1,6 +1,6 @@
 # Detect Defect Area in Cranial CT Scan Images Using CNN and ResNet
 Authors: Zhichao Pan (charles.zhpan@gmail.com) and Dr. Sophie Yang (yuanyang@utoronto.ca)
-@ [Bone Interface Group](http://www.ecf.utoronto.ca/~bonehead/), IBBME, University of Toronto 
+@[Bone Interface Group](http://www.ecf.utoronto.ca/~bonehead/), IBBME, University of Toronto 
 
 ## Project Overview
 The purpose of this project is to create a data science pipeline to automate processing and analyzing of CT scan data obtained from laboratory samples. Specifically, we are interested to apply deep learning techniques to detecting a surgically created circular defect  in every cross-sectional image of mouse cranial bone. 
