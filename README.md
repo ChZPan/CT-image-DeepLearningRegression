@@ -10,7 +10,7 @@ Regions of defect in the sample images below are circled in red, measured by hum
 
 
 ## Dataset
-The full dataset for model training is available at [Kaggle](https://www.kaggle.com/chzpan/bone-lab). The directory tree looks like:
+This mouse cranial CT scan dataset contains a total of 5,606 slice images from 65 scanned samples. It is available at [Kaggle](https://www.kaggle.com/chzpan/bone-lab). The directory tree looks like:
 
 ```
  .
@@ -29,9 +29,10 @@ The full dataset for model training is available at [Kaggle](https://www.kaggle.
       |____C00055300023.png
       |____...
 ```
-File contents:
-* sample.zip: Contains 5,606 images with size 1024 x 1024
-* sample_labels.csv: Class labels and patient data for the entire dataset
+
+File Contents
+* roi.zip - contains the ground truth of each slice's defect region, measured by human experts. There are 65 sub-directories named with a unique 8-digit sample ID in the form of '''C000XXXX''', so each of them contains all ROI files for an individual sample. The ROI files are named in the form of '''XXXX-XXXX-XXXX'''. The first 4 digits is a unique ID assigned to every single slice. The following 8 digits give the pixel coordinates of a circular defect region. For example, 1135-1011 represents a circle center of which is at (X:1011, Y:1135).
+* trainset.zip: contains all slice images with size 2048 x 2048 in greyscale PNG format.
 
 ### Pre-processing
 
