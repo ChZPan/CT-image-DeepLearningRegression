@@ -37,7 +37,7 @@ File Contents
 
 ## Data Pre-processing
 The following diagram shows our data pre-processing pipeline:
-![](./images/Processing_Pipeline.png)
+![](./images/Process_Pipeline.png)
 pipeline for data pre-processing is as follows:
 1. Crop & resize all images using the [resizing script](src/resize_images.py) and the [preprocessing script](src/preprocess_images.py).
 2. Rotate & mirror all images using the [rotation script](src/rotate_images.py).
