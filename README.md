@@ -46,11 +46,8 @@ The following diagram shows our data pre-processing pipeline:
 3. Stack the pixel values of all training images with their true centers row-wise to make a 2-D NumPy arrays.
 
 
-## Algorithms and Architecture
-* CNN
-* Spacial Transformer
-* VGG finetuning
-* Capsule Network
+## Algorithms and Architectures
+In this project we have employed 
 ### Architecture
 
 #### Vallina CNN
