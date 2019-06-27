@@ -30,7 +30,7 @@ The mouse cranial CT scan data consists of 5,606 slice images from 65 CT scanned
       |____C00055300023.png
       |____...
 ```
-
+ 
 File Contents
 * roi.zip - contains the ground truth of each slice's defect region, measured by human experts. There are 65 sub-directories named with a unique 8-digit sample ID in the form of ``C000XXXX``, so each of them contains all ROI files for an individual sample. The ROI files are named in the form of ``XXXX-XXXX-XXXX``. The first 4 digits is a unique ID assigned to every single slice. The following 8 digits give the pixel coordinates of a circular defect region. For example, 1135-1011 represents a circle center of which is at (1011, 1135).
 * trainset.zip: contains all slice images with size 2048 x 2048 in greyscale PNG format.
@@ -39,15 +39,14 @@ File Contents
 The following diagram shows our data pre-processing pipeline:
 ![](./images/preprocess_pipeline.png)
 
-pipeline for data pre-processing is as follows:
-1. Crop & resize all images using the [resizing script](src/resize_images.py) and the [preprocessing script](src/preprocess_images.py).
-2. Rotate & mirror all images using the [rotation script](src/rotate_images.py).
-3. Convert all images to array of NumPy arrays, using the [conversion script](src/image_to_array.py).
+1. Load, crop and resize all images using the [load_image](src/utils.py) script;
+2. Rotate and mirror images at random using the [mirror](src/utils.py) script;
+3. Read the ground-truth data from all ROI files using the [get_centers](src/utils.py) script;
+4. Map pixels of defect region center to a corrdinate system that starts from (0.0, 0.0) at upper-left corner and ends in (1.0, 1.0) at bottom-right corner, using [coord_transfm](src/utils.py) script;  
+3. Stack the pixel values of all training images with their true centers row-wise to make a 2-D NumPy arrays.
 
 
-
-
-## Algorithms and Techniques
+## Algorithms and Architecture
 * CNN
 * Spacial Transformer
 * VGG finetuning
