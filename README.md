@@ -47,7 +47,9 @@ The following diagram shows our data pre-processing pipeline:
 
 
 ## Algorithms and Architectures
-In this project we have employed 
+At the outset of this project, we developed a simple CNN model and evaluate its performance to set a baseline. The model, having 7 layers and approximately 2 million parameters to train, was built from scratch using Keras with TensorFlow as the backend. 
+
+The second model employed was 
 ### Architecture
 
 #### Vallina CNN
