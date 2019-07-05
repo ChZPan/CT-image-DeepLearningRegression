@@ -49,20 +49,16 @@ The following diagram shows our data pre-processing pipeline:
 ## Algorithms and Architectures
 At the outset of this project, we developed a simple CNN model and evaluate its performance to set a baseline. The model, having 7 layers and approximately 2 million parameters to train, was built from scratch using Keras with TensorFlow as the backend. 
 
-The second model employed was 
-### Architecture
+Next We chose to perform our experiment using more sophisticated architetures that are among the most commonly referred in recent literature. The first one we are presenting here is ResNet-50. The ResNet-50 was originally designed for classification purpose by training on ImageNet, while the problem to tackle here is a regression one. Therefore we need to modify the network by removing the last softmax layer, replacing it with 3 fully connected layers, the last of which has linear activation and number of neurons equal to the dimension of target space.
 
-#### Vallina CNN
-![](./images/vallina.jpg)
+The architecture of both network are depicted in below figures.
 
-#### Optimized CNN
-![](./images/Optimized%20CNN.jpg)
+7-layer CNN
+![](./images/CNN_diagram.png)
 
-#### CapsNet
-![](./images/CapsNet.jpg)
+ResNet-50
+![](./images/ResNet50_diagram.png)
 
-## Metrics & Result
-F-beta score with β = 0.5 to represent precision will be more important than recall in this case.
 
 Result:
 In sample dataset:
