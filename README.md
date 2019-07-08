@@ -52,6 +52,7 @@ At the outset of this project, we developed a simple CNN model and evaluate its 
 Next We chose to perform our experiment using more sophisticated architetures that are among the most commonly referred in recent literature. The first one we are presenting here is ResNet-50. The ResNet-50 was originally designed for classification purpose by training on ImageNet, while the problem to tackle here is a regression one. Therefore we need to modify the network by removing the last softmax layer, replacing it with 3 fully connected layers, the last of which has linear activation and number of neurons equal to the dimension of target space.
 
 The architecture of both network are depicted in below figures.
+
 7-layer CNN
 ![](./images/CNN_diagram.png)
 ResNet-50
