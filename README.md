@@ -55,7 +55,7 @@ The architecture of both network are depicted in below figures.
 
 
 ![](./images/CNN_diagram.png)
-.center[7-layer CNN]
+<p align=center>7-layer CNN</p>
 
 ![](./images/ResNet50_diagram.png)
 .center[ResNet-50]
