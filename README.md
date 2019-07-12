@@ -65,40 +65,30 @@ The models were trained on a NVIDIA Tesla P100 GPU with Keras 2.2.4 on the Tenso
 
 The original data set, containing more than 5,000 slice images, was sufficient to train the base CNN model, while for the much deeper ResNet-50, we have to employ data augmentation to expand the size of training data to 15,000. We split the data set into training, validataion, test sets in 80/10/10 ratio.
 
-The loss function to be optimized for this regression problem is the Mean Euclidean Distance. We chose Adam as the optimizer. We had also tried RMSProp but it does not seem to be the optimizer of choice for our deep regression problem. To evaluate the performance of different models, we also introduced the RMSE metrics, which represents the sample standard deviation of the distance between the predicted values and human-measured values.
+The loss function to be optimized for this regression problem is the Mean Euclidean Distance (MED). We chose Adam as the optimizer. We had also tried RMSProp but it does not seem to be the optimizer of choice for our deep regression problem. To evaluate the performance of different models, we also introduced the RMSE metrics, which represents the sample standard deviation of the distance between the predicted values and human-measured values.
 
-The base CNN model has been trained for 80 epochs, and the ResNet-50 for 120 epochs. The evolution of the loss function and RMSE metrics on both the training and validation sets are displayed in the below figures. 
+The base CNN model has been trained over 80 epochs. We started with an initial learning rate of 1e-3 and reduced it by 50% on plateauing, final learning rate at the end of 80 epochs was 1e-4. The ResNet-50 has been trained over 120 epochs, with initial learning rate of 1e-2.523 and final learning rate of 3e-5. The evolution of the loss function and RMSE metrics on both the training and validation sets are displayed in the below figures. 
 
 ![](./images/simplecnn_hist_3.png)
 
 ![](./images/resnet_hist_2.png)
 
+### Hyper-parameter Tuning
+We have employed random search to optimize hyper-parameters for the ResNet-50 model. The combination of hyper-parameters being examined includes:
+* Starting learning rates
+* Mini-batch sizes
+* Drop-out ratios
+* Depth of fully-connected layers
+* Number of neurons in each fully-connected layers
 
+### Result
+The two models have returned the following scores on the test sets:
 
+| Models | MED | MED (pixel) | RMSE |
+| :-----: | :-----: | :-----: | :-----:|
+| Base CNN | 0.0038 | 5.05 | 0.0066 |
+| ResNet-50 | 0.0039 | 5.12 | 0.0165 |
 
-Result:
-In sample dataset:
-
-| Model | Precision | Recall | F 0.5 score | Accuracy | Training time/ epoch | no. parameters |
-| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| Vanilla rgb	| 0.617	| 0.589	| 0.611	| 0.503	| 2 s	| 322793 |
-| Vanilla gray	| 0.577	| 0.48	| 0.555	| 0.517	| 2 s	| 321225 | 
-| CNN + VGG	| 0.645	| 0.555	| 0.624	| 0.667	| 16 s	| 15252133 | 
-| CNN + VGG + data	| 0.647	| 0.588	| 0.634	| 0.675	| 16 s	| 15240769 | 
-| CNN + VGG + data + STN	| 0.642	| 0.614	| 0.636	| 0.677	| 19 s	| 15488051 | 
-| CapsNet basic	| 0.614	| 0.599	| 0.611	| 0.581	| 75 s	| 14788864 | 
-| CapsNet changed	| 0.735	| 0.073	| 0.261	| 0.575	| 37 s	| 12167424 | 
-
-In full dataset:
-
-| Model | Precision | Recall | F 0.5 score | Accuracy | Training time/ epoch | no. parameters |
-| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| Vanilla rgb	| 0.672	| 0.594	| 0.655	| 0.672	| 53 s	| 322793 | 
-| Vanilla gray	| 0.672	| 0.572	| 0.649	| 0.667	| 51 s	| 321225 | 
-| CNN + VGG	| 0.675	| 0.619	| 0.663	| 0.688	| 384 s	| 15252133 | 
-| CNN + VGG + data + STN	| 0.684	| 0.621	| 0.67	| 0.693	| 431 s	| 15488051 | 
-| CapsNet basic	| 0.64	| 0.498	| 0.605	| 0.635	| 1815 s	| 14788864 | 
-| CapsNet changed	| 0.625	| 0.474	| 0.588	| 0.625	| 856 s	| 12167424 |  
 
 ## Installation
 ### [Jupyter Notebook](http://jupyter.readthedocs.io/en/latest/install.html) with [python3](http://docs.python-guide.org/en/latest/starting/install3/linux/)
