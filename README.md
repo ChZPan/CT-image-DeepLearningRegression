@@ -1,16 +1,15 @@
-# Detect Defect Area in Cranial CT Scan Images Using CNN and ResNet
+## Detect Defect Area in Cranial CT Scan Images Using CNN and ResNet
 #### Authors: Zhichao Pan (charles.zhpan@gmail.com) and Dr. Sophie Yang (yuanyang@utoronto.ca)
 @[Bone Interface Group](http://www.ecf.utoronto.ca/~bonehead/), IBBME, University of Toronto 
 
-## Project Overview
+### Project Overview
 The purpose of this project is to create a data science pipeline to automate processing and analyzing of CT scan data obtained from laboratory samples. Specifically, we are interested to apply deep learning techniques to detecting a surgically created circular defect  in every cross-sectional image of mouse cranial bone. 
 
 Regions of defect in the sample images below are circled in red, measured by human experts.
 
 ![](./images/human.png)
 
-
-## Data Sets
+### Data Sets
 The mouse cranial CT scan data consists of 5,606 slice images from 65 CT scanned samples. The full dataset for model training can be downloaded from https://www.kaggle.com/chzpan/bone-lab. The directory tree looks like:
 
 ```
@@ -35,7 +34,7 @@ File Contents
 * roi.zip - contains the ground truth of each slice's defect region, measured by human experts. There are 65 sub-directories named with a unique 8-digit sample ID in the form of ``C000XXXX``, so each of them contains all ROI files for an individual sample. The ROI files are named in the form of ``XXXX-XXXX-XXXX``. The first 4 digits is a unique ID assigned to every single slice. The following 8 digits give the pixel coordinates of a circular defect region. For example, 1135-1011 represents a circle center of which is at (1011, 1135).
 * trainset.zip: contains all slice images with size 2048 x 2048 in greyscale PNG format.
 
-## Data Pre-processing
+### Data Pre-processing
 The following diagram shows our data pre-processing pipeline:
 ![](./images/preprocess_pipeline.png)
 
@@ -46,21 +45,21 @@ The following diagram shows our data pre-processing pipeline:
 5. Stack the pixel values of all training images with their true centers row-wise to make a 2-D NumPy arrays.
 
 
-## Algorithms and Architectures
+### Algorithms and Architectures
 At the outset of this project, we developed a simple CNN model and evaluate its performance to set a baseline. The model, having 7 layers and approximately 2 million parameters to train, was built from scratch using Keras with TensorFlow as the backend. 
 
 Next We chose to perform our experiment using more sophisticated architetures that are among the most commonly referred in recent literature. The first one we are presenting here is ResNet-50. The ResNet-50 was originally designed for classification purpose by training on ImageNet, while the problem to tackle here is a regression one. Therefore we need to modify the network by removing the last softmax layer, replacing it with 3 fully connected layers, the last of which has linear activation and number of neurons equal to the dimension of target space.
 
 The architecture of both network are depicted in below figures.
 
-7-layer:
+7-layer CNN:
 ![](./images/CNN_diagram.png)
 
 ResNet:
 ![](./images/ResNet50_diagram.png)
 
 
-## Network Training
+### Network Training
 The models were trained on a NVIDIA Tesla P100 GPU with Keras 2.2.4 on the Tensorflow 1.14.0 backend. 
 
 The original data set, containing more than 5,000 slice images, was sufficient to train the base CNN model, while for the much deeper ResNet-50, we have to employ data augmentation to expand the size of training data to 15,000. We split the data set into training, validataion, test sets in 80/10/10 ratio.
