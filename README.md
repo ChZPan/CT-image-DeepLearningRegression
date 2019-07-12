@@ -10,7 +10,7 @@ Regions of defect in the sample images below are circled in red, measured by hum
 ![](./images/human.png)
 
 
-## Dataset
+## Data Sets
 The mouse cranial CT scan data consists of 5,606 slice images from 65 CT scanned samples. The full dataset for model training can be downloaded from https://www.kaggle.com/chzpan/bone-lab. The directory tree looks like:
 
 ```
@@ -53,12 +53,24 @@ Next We chose to perform our experiment using more sophisticated architetures th
 
 The architecture of both network are depicted in below figures.
 
-
 ![](./images/CNN_diagram.png)
 <p align=center>7-layer CNN</p>
 
 ![](./images/ResNet50_diagram.png)
 .center[ResNet-50]
+
+## Network Training
+The models were trained on a NVIDIA Tesla P100 GPU with Keras 2.2.4 on the Tensorflow 1.14.0 backend. 
+
+The original data set, containing more than 5,000 slice images, was sufficient to train the base CNN model, while for the much deeper ResNet-50, we have to employ data augmentation to expand the size of training data to 15,000. We split the data set into training, validataion, test sets in 80/10/10 ratio.
+
+The loss function to be optimized for this regression problem is the Mean Euclidean Distance. We chose Adam as the optimizer. We had also tried RMSProp but it does not seem to be the optimizer of choice for our deep regression problem. To evaluate the performance of different models, we also introduced the RMSE metrics, which represents the sample standard deviation of the distance between the predicted values and human-measured values.
+
+![](./images/simplecnn_hist_3.png)
+![](./images/resnet_5)
+
+
+
 
 Result:
 In sample dataset:
