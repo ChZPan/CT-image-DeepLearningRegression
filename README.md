@@ -53,10 +53,10 @@ Next We chose to perform our experiment using more sophisticated architetures th
 
 The architecture of both network are depicted in below figures.
 
-<p align=center>7-layer CNN</p>
+7-layer:
 ![](./images/CNN_diagram.png)
 
-<p align=center>ResNet-50</p>
+ResNet:
 ![](./images/ResNet50_diagram.png)
 
 
