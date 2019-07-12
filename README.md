@@ -60,14 +60,17 @@ ResNet:
 ![](./images/ResNet50_diagram.png)
 
 
-## Network Trainin
+## Network Training
 The models were trained on a NVIDIA Tesla P100 GPU with Keras 2.2.4 on the Tensorflow 1.14.0 backend. 
 
 The original data set, containing more than 5,000 slice images, was sufficient to train the base CNN model, while for the much deeper ResNet-50, we have to employ data augmentation to expand the size of training data to 15,000. We split the data set into training, validataion, test sets in 80/10/10 ratio.
 
 The loss function to be optimized for this regression problem is the Mean Euclidean Distance. We chose Adam as the optimizer. We had also tried RMSProp but it does not seem to be the optimizer of choice for our deep regression problem. To evaluate the performance of different models, we also introduced the RMSE metrics, which represents the sample standard deviation of the distance between the predicted values and human-measured values.
 
+The base CNN model has been trained for 80 epochs, and the ResNet-50 for 120 epochs. The evolution of the loss function and RMSE metrics on both the training and validation sets are displayed in the below figures. 
+
 ![](./images/simplecnn_hist_3.png)
+
 ![](./images/resnet_hist_2.png)
 
 
