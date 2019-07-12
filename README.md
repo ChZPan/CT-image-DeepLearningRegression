@@ -30,7 +30,8 @@ The mouse cranial CT scan data consists of 5,606 slice images from 65 CT scanned
       |____...
 ```
  
-File Contents
+
+#### File Contents
 * roi.zip - contains the ground truth of each slice's defect region, measured by human experts. There are 65 sub-directories named with a unique 8-digit sample ID in the form of ``C000XXXX``, so each of them contains all ROI files for an individual sample. The ROI files are named in the form of ``XXXX-XXXX-XXXX``. The first 4 digits is a unique ID assigned to every single slice. The following 8 digits give the pixel coordinates of a circular defect region. For example, 1135-1011 represents a circle center of which is at (1011, 1135).
 * trainset.zip: contains all slice images with size 2048 x 2048 in greyscale PNG format.
 
@@ -52,10 +53,10 @@ Next We chose to perform our experiment using more sophisticated architetures th
 
 The architecture of both network are depicted in below figures.
 
-7-layer CNN:
+#### 7-layer CNN:
 ![](./images/CNN_diagram.png)
 
-ResNet:
+#### ResNet:
 ![](./images/ResNet50_diagram.png)
 
 
