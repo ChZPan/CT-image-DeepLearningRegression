@@ -57,7 +57,7 @@ The architecture of both network are depicted in below figures.
 <p align=center>7-layer CNN</p>
 
 ![](./images/ResNet50_diagram.png)
-.center[ResNet-50]
+<p align=center>ResNet-50</p>
 
 ## Network Training
 The models were trained on a NVIDIA Tesla P100 GPU with Keras 2.2.4 on the Tensorflow 1.14.0 backend. 
@@ -67,7 +67,7 @@ The original data set, containing more than 5,000 slice images, was sufficient t
 The loss function to be optimized for this regression problem is the Mean Euclidean Distance. We chose Adam as the optimizer. We had also tried RMSProp but it does not seem to be the optimizer of choice for our deep regression problem. To evaluate the performance of different models, we also introduced the RMSE metrics, which represents the sample standard deviation of the distance between the predicted values and human-measured values.
 
 ![](./images/simplecnn_hist_3.png)
-![](./images/resnet_5)
+![](./images/resnet_hist_2)
 
 
 
