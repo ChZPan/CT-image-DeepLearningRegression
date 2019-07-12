@@ -9,6 +9,7 @@ Regions of defect in the sample images below are circled in red, measured by hum
 
 ![](./images/human.png)
 
+
 ### Data Sets
 The mouse cranial CT scan data consists of 5,606 slice images from 65 CT scanned samples. The full dataset for model training can be downloaded from https://www.kaggle.com/chzpan/bone-lab. The directory tree looks like:
 
@@ -29,11 +30,11 @@ The mouse cranial CT scan data consists of 5,606 slice images from 65 CT scanned
       |____C00055300023.png
       |____...
 ```
- 
 
 #### File Contents
 * roi.zip - contains the ground truth of each slice's defect region, measured by human experts. There are 65 sub-directories named with a unique 8-digit sample ID in the form of ``C000XXXX``, so each of them contains all ROI files for an individual sample. The ROI files are named in the form of ``XXXX-XXXX-XXXX``. The first 4 digits is a unique ID assigned to every single slice. The following 8 digits give the pixel coordinates of a circular defect region. For example, 1135-1011 represents a circle center of which is at (1011, 1135).
 * trainset.zip: contains all slice images with size 2048 x 2048 in greyscale PNG format.
+
 
 ### Data Pre-processing
 The following diagram shows our data pre-processing pipeline:
@@ -73,6 +74,7 @@ The base CNN model has been trained over 80 epochs. We started with an initial l
 
 ![](./images/resnet_hist_2.png)
 
+
 ### Hyper-parameter Tuning
 We have employed random search to optimize hyper-parameters for the ResNet-50 model. The combination of hyper-parameters being examined includes:
 * Starting learning rates
@@ -80,6 +82,7 @@ We have employed random search to optimize hyper-parameters for the ResNet-50 mo
 * Drop-out ratios
 * Depth of fully-connected layers
 * Number of neurons in each fully-connected layers
+
 
 ### Result
 The two models have returned the following scores on the test sets:
