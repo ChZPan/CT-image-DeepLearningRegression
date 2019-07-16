@@ -95,10 +95,10 @@ The two models achieved comparable performance in detecting the defect regions o
 Some sample outputs made by the models from our test set are shown below.
 
 #### 7-layer CNN:
-![](./images/simplecnn_3)
+![](./images/simplecnn_3.png)
 
 #### ResNet:
-![](./images/resnet_5)
+![](./images/resnet_5.png)
 
 
 ## Installation
