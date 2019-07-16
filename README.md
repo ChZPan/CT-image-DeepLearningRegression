@@ -85,12 +85,20 @@ We have employed random search to optimize hyper-parameters for the ResNet-50 mo
 
 
 ### Result
-The two models have returned the following scores on the test sets:
+The two models achieved comparable performance in detecting the defect regions on test set, both with MED of 0.004, approximately, which is on average around 5 pixels off from the locations measured by human experts. However, we can see that the prediction error of the ResNet-50 model spread more out than that of the CNN model (0.017 vs 0.007 in RMSE).
 
 | Models | MED | MED (pixel) | RMSE |
 | :-----: | :-----: | :-----: | :-----:|
 | Base CNN | 0.0038 | 5.05 | 0.0066 |
 | ResNet-50 | 0.0039 | 5.12 | 0.0165 |
+
+Some sample outputs made by the models from our test set are shown below.
+
+#### 7-layer CNN:
+![](./images/simplecnn_3)
+
+#### ResNet:
+![](./images/resnet_5)
 
 
 ## Installation
@@ -120,35 +128,3 @@ $ pip3 install keras
 * tqdm
 * sklearn
 * pickle
-
-## Note
-1. Run [Data preprocessing](./Data%20preprocessing%20-%20SampleDataset.ipynb) first to create preprocessing file in Sample dataset before run other notebook for Sample dataset.  
-
-2. Following are the file descriptions and URL’s from which the data can be obtained:
-* data sample/sample_labels.csv: Class labels and patient data for the sample dataset
-* data sample/Data_entry_2017.csv: Class labels and patient data for the full dataset
-* data sample/images/*: 10 chest X-ray images
-
-3. Following are the notebooks descriptions and python files descriptions, files log:
-Notebooks:
-* Capsule Network - FullDataset.ipynb: Capsule Network with my architecture in full dataset
-* Capsule Network - SampleDataset.ipynb: Capsule Network with my architecture in sample dataset
-* Capsule Network basic - FullDataset.ipynb: Capsule Network with Hinton's architecture in full dataset
-* Capsule Network basic - SampleDataset.ipynb: Capsule Network with Hinton's architecture in sample dataset
-* Data analysis - FullDataset.ipynb: Data analysis in full dataset
-* Data analysis - SampleDataset.ipynb: data analysis in sample dataset
-* Data preprocessing - SampleDataset.ipynb: Data preprocessing
-* Demo.ipynb: Demo prediction 20 samples
-* optimized CNN - FullDataset.ipynb: My optimized CNN architecture in full dataset
-* optimized CNN - SampleDataset.ipynb: My optimized CNN architecture in sample dataset
-* vanilla CNN - FullDataset.ipynb: Vanilla CNN in full dataset
-* vanilla CNN - SampleDataset.ipynb: Vanilla CNN in sample dataset
-
-Python files
-* capsulelayers.py: capsule layer from [XifengGuo](https://github.com/XifengGuo/CapsNet-Keras)
-* spatial_transformer.py: spatial transformer layser from [hello2all](https://github.com/hello2all/GTSRB_Keras_STN)
-So thank you guys for support me with capsule layer and spatial transformer layer in Keras-gpu
-
-Log:
-* FullDataset Log: all log file in full dataset
-* SampleDataset Log: all log file in sample dataset
