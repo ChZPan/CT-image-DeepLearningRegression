@@ -57,7 +57,7 @@ The architecture of both network are depicted in below figures.
 #### 7-layer CNN:
 ![](./images/CNN_diagram.png)
 
-#### ResNet:
+#### ResNet-50:
 ![](./images/ResNet50_diagram.png)
 
 
@@ -84,7 +84,7 @@ We have employed random search to optimize hyper-parameters for the ResNet-50 mo
 * Number of neurons in each fully-connected layers
 
 
-### Result
+### Results
 The two models achieved comparable performance in detecting the defect regions on test set, both with MED of 0.004, approximately, which is on average around 5 pixels off from the locations measured by human experts. However, we can see that the prediction error of the ResNet-50 model spread more out than that of the CNN model (0.017 vs 0.007 in RMSE).
 
 | Models | MED | MED (pixel) | RMSE |
@@ -97,7 +97,7 @@ Some sample outputs made by the models from our test set are shown below.
 #### 7-layer CNN:
 ![](./images/simplecnn_3.png)
 
-#### ResNet:
+#### ResNet-50:
 ![](./images/resnet_5.png)
 
 
