@@ -64,7 +64,7 @@ The architecture of both network are depicted in below figures.
 ### Network Training
 The models were trained on a NVIDIA Tesla P100 GPU with Keras 2.2.4 on the Tensorflow 1.14.0 backend. 
 
-The original data set, containing more than 5,000 slice images, was sufficient to train the base CNN model, while for the much deeper ResNet-50, we have to employ data augmentation to expand the size of training data to 15,000. We split the data set into training, validataion, test sets in 80/10/10 ratio.
+The original data set, containing more than 5,000 slice images, was sufficient to train the simple CNN model, while for the much deeper ResNet-50, we have to employ data augmentation to expand the size of training data to 15,000. We split the data set into training, validataion, test sets in 80/10/10 ratio.
 
 The loss function to be optimized for this regression problem is the Mean Euclidean Distance (MED). We chose Adam as the optimizer. We had also tried RMSProp but it does not seem to be the optimizer of choice for our deep regression problem. To evaluate the performance of different models, we also introduced the RMSE metrics, which represents the sample standard deviation of the distance between the predicted values and human-measured values.
 
@@ -89,7 +89,7 @@ The two models achieved comparable performance in detecting the defect regions o
 
 | Models | MED | MED (pixel) | RMSE |
 | :-----: | :-----: | :-----: | :-----:|
-| Base CNN | 0.0038 | 5.05 | 0.0066 |
+| Simple CNN | 0.0038 | 5.05 | 0.0066 |
 | ResNet-50 | 0.0039 | 5.12 | 0.0165 |
 
 Some sample outputs made by the models from our test set are shown below.
