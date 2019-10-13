@@ -101,24 +101,10 @@ Some sample outputs made by the models from our test set are shown below.
 ![](./images/resnet_5.png)
 
 
-### Installation
-#### [Jupyter Notebook](http://jupyter.readthedocs.io/en/latest/install.html) with [python3](http://docs.python-guide.org/en/latest/starting/install3/linux/)
-```sh
-$ sudo apt-get update
-$ sudo apt-get install python3-pip python3-dev
-$ pip3 install --upgrade pip
-$ pip3 install jupyter
-```
-#### [Tensorflow](https://www.tensorflow.org/install/install_linux) for GPU
-```sh
-$ pip3 install tensorflow     # Python 3.n; CPU support (no GPU support)
-$ pip3 install tensorflow-gpu # Python 3.n; GPU support 
-```
-#### [Keras](https://keras.io/#installation) for GPU
-```sh
-$ pip3 install keras
-```
-### Other Libraries
+### Dependencies
+* Python 3
+* [Tensorflow](https://www.tensorflow.org/)
+* [Keras](https://keras.io/)
 * numpy
 * pandas
 * matplotlib
